@@ -13,21 +13,7 @@
 <body class="header-color" style="background-color: #ffffff !important;">
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000563;">
-		  	<a class="navbar-brand" href="{{ asset('/') }}">WP</a>
-		  	<div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-		        <ul class="navbar-nav ml-auto">
-		        	@guest
-			            <li class="nav-item">
-			                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-			            </li>
-			            @if (Route::has('register'))
-				            <li class="nav-item">
-				                <a class="nav-link" href="{{ route('register') }}">{{ __('Registreer') }}</a>
-				            </li>
-				        @endif
-			        @endguest
-		        </ul>
-		    </div>
+		  	<a class="navbar-brand" href="{{ asset('/') }}">Weekend Opdracht</a>
 		</nav>
 	</header>
 @yield('content')
