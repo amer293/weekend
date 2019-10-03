@@ -148,10 +148,25 @@ class DashboardController extends Controller
     }
 
     public function showAssignments()
-    {
+    {   
+        if(Auth::user()->admin){
+
+
         $assignments = Assignment::get()->all();
 
         return view('dashboard.assignment')
             ->with('assignments', $assignments);
+        }else{
+            return Redirect::back();
+        }
+    }
+
+    public function destroyAssignment($id)
+    {
+        $assignment = Assignment::findOrFail($id);
+        
+        $assignment->delete();
+        
+        return redirect::back();
     }
 }

@@ -64,7 +64,7 @@
                     <span>Mijn Account</span>
                 </a>
                 <a class="nav-link collapsed"
-                    href="{{ route('dashboard.edit', ['id' => Auth::user()->id]) }}">
+                    href="{{ route('ShowAssignments') }}">
                     <i class="fas fa-cogs"></i>
                     <span>Opdrachten</span>
                 </a>
