@@ -38,6 +38,7 @@ class DashboardController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -69,12 +70,18 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-       
-        $user = User::find($id);
+    {   
+        if(Auth::user()->admin) 
+        {
+            $user = User::find($id);
 
-        return view('dashboard.edit')
-            ->with('user', $user);
+                return view('dashboard.edit')
+                ->with('user', $user);
+        } else{
+            return Redirect::back();   
+        }
+       
+   
     } 
         
 

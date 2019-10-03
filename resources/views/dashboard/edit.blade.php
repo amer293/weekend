@@ -17,15 +17,11 @@
         <body id="page-top">
             <script src="https://cdn.tiny.cloud/1/l0hwhlo0x1rlaw5krbmgxgkwum7wa6tom7725mh5beoqvep2/tinymce/5/tinymce.min.js">
             </script>
-            <script>
-            tinymce.init({
-            selector: '#mytextarea'
-            });
-            </script>
+
             <!-- Page Wrapper -->
             <div id="wrapper">
                 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/admin')}}">
+                    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/dashboard')}}">
                         <div class="sidebar-brand-icon rotate-n-15">
                             <i class="fas fa-laugh-wink"></i>
                         </div>
@@ -36,15 +32,24 @@
                         Dashboard
                     </div>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="{{URL::to('/admin')}}">
+                        <a class="nav-link collapsed" href="{{URL::to('/dashboard')}}">
                             <i class="fas fa-cogs"></i></i>
-                            <span>All Users</span>
+                            <span>Dashboard</span>
+                        </a>
+                        @if(Auth::user()->admin)
+                        <a class="nav-link collapsed"
+                            href="{{ route('dashboard.edit', ['id' => Auth::user()->id]) }}">
+                            <i class="fas fa-cogs"></i>
+                            <span>Mijn Account</span>
+                            
                         </a>
                         <a class="nav-link collapsed"
-                            href="{{ route('admin.edit', ['id' => Auth::user()->id]) }}">
-                            <i class="fas fa-cogs"></i></i>
-                            <span>Mijn Account</span>
+                            href="{{ route('dashboard.edit', ['id' => Auth::user()->id]) }}">
+                            <i class="fas fa-cogs"></i>
+                            <span>Opdrachten</span>
                         </a>
+                        
+                        @endif
                     </li>
                 </ul>
                 <div id="content-wrapper" class="d-flex flex-column">
@@ -80,15 +85,15 @@
                                                 class="caret"></span>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                
+                                                <a class="dropdown-item" href="{{URL::to('/dashboard')}}">
+                                                    Dashboard
+                                                </a>
                                                 @if(Auth::user()->admin)
-                                                <a class="dropdown-item" href="{{URL::to('/admin')}}">
-                                                    Admin Panel
+                                                <a class="dropdown-item"
+                                                    href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">Opdracht toewijzen
                                                 </a>
                                                 @endif
-                                                {{-- <a class="dropdown-item"
-                                                    href="{{ route('admin.edit', ['id' => Auth::user()->id]) }}">
-                                                    Settings
-                                                </a> --}}
                                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                                     {{ __('Logout') }}
@@ -115,7 +120,7 @@
                                             <p class="card-text">Email: {{$user->email}}</p>
                                             
                                             <p class="card-text">
-                                                {!! Form::open(['route' => ['admin.destroy', $user->id], 'method' => 'DELETE']) !!}
+                                                {!! Form::open(['route' => ['dashboard.destroy', $user->id], 'method' => 'DELETE']) !!}
                                                 <button type="submit" class="btn btn-danger">DELETE ACCOUNT</button>
                                                 {!! Form::close() !!}
                                                 
@@ -125,47 +130,13 @@
                                     </div>
                                 </div>
                             </div>
-{{--                             <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">POSTS MADE BY USER</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>POST</th>
-                                                    <th>ACTION</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @php
-                                                $posts = $user->posts()->orderBy('id', 'desc')->paginate(10)
-                                                @endphp
-                                                @foreach($posts as $post)
-                                                <tr>
-                                                    <td>{{$post->id}}</td>
-                                                    <td>{!!$post->body!!}</td>
-                                                    <td>
-                                                        {!! Form::open(['route' => ['post.destroy', $post->id], 'method' =>
-                                                        'DELETE']) !!}
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                    {!! Form::close() !!}</td>
-                                                </tr>
-                                                @endforeach
-                                                <p style="margin-right:50%;">{{$posts->links()}}</p>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div> --}}
+
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h6 class="m-0 font-weight-bold text-primary">Gebruiker Aanpassen</h6>
                                 </div>
                                 <div class="card-body">
-                                    {!! Form::open(['route' => ['admin.update', $user->id], 'method' => 'PUT', 'files' => true])
+                                    {!! Form::open(['route' => ['dashboard.update', $user->id], 'method' => 'PUT', 'files' => true])
                                     !!}
                                     <br>
                                     {!! Form::text('first_name', $user->first_name, ['class' => 'form-control', 'placeholder' =>

@@ -48,6 +48,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+            @if(Auth::user()->admin)
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{URL::to('/dashboard')}}">
                     <i class="fas fa-cogs"></i></i>
@@ -58,8 +59,15 @@
                     <i class="fas fa-cogs"></i></i>
                     <span>Mijn Account</span>
                 </a>
+                <a class="nav-link collapsed"
+                    href="{{ route('dashboard.edit', ['id' => Auth::user()->id]) }}">
+                    <i class="fas fa-cogs"></i>
+                    <span>Opdrachten</span>
+                </a>
 
             </li>
+            @endif
+            
 
         </ul>
         <!-- End of Sidebar -->
@@ -113,10 +121,7 @@
 
 
                                         @if(Auth::user()->admin)
-                                        <a class="dropdown-item" href="{{URL::to('/admin')}}">
-
-                                            Dashboard
-                                        </a>
+                                        
                                         <a class="dropdown-item"
                                             href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">
 
@@ -145,11 +150,13 @@
                 <!-- Begin Page Content -->
                 <div class="container">
                     <br>
+                    @if(Auth::user()->admin)
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">USERS</h6>
                         </div>
                         <div class="card-body">
+                            
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -205,13 +212,14 @@
                                 </table>
                                {{--  <p>{{$user->links()}}</p> --}}
                             </div>
+                            
                         </div>
                     </div>
 
                     <!--/table-resp-->
 
 
-
+                    @endif
                 </div>
                 <!-- /.container-fluid -->
 
