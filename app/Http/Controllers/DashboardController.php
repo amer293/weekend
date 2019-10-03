@@ -8,7 +8,7 @@ use DB;
 use Redirect;
 use Auth;
 
-class AdminController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -22,7 +22,7 @@ class AdminController extends Controller
 
         $user = User::get()->all();
 
-        return view('admin.index')
+        return view('dashboard.index')
             ->with('user', $user);
         }else{
             return Redirect::back();
@@ -73,7 +73,7 @@ class AdminController extends Controller
        
         $user = User::find($id);
 
-        return view('admin.edit')
+        return view('dashboard.edit')
             ->with('user', $user);
     } 
         
@@ -121,6 +121,6 @@ class AdminController extends Controller
         
         $user->delete();
         
-        return redirect('/admin');
+        return redirect('/dashboard');
     }
 }
