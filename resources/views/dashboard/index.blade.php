@@ -29,10 +29,10 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #000563;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/dashboard')}}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/home')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -50,6 +50,10 @@
             <!-- Nav Item - Pages Collapse Menu -->
             @if(Auth::user()->admin)
             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{URL::to('/home')}}">
+                    <i class="fas fa-cogs"></i></i>
+                    <span>Home</span>
+                </a>
                 <a class="nav-link collapsed" href="{{URL::to('/dashboard')}}">
                     <i class="fas fa-cogs"></i></i>
                     <span>Gebruikers</span>
@@ -67,7 +71,7 @@
 
             </li>
             @endif
-            
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -79,7 +83,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #000563;">
                     <div class="container">
                         <a class="navbar-brand" href="{{ url('/home') }}">
                             {{ config('app.name', 'FakeLook') }}
@@ -121,7 +125,7 @@
 
 
                                         @if(Auth::user()->admin)
-                                        
+
                                         <a class="dropdown-item"
                                             href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">
 
@@ -156,7 +160,7 @@
                             <h6 class="m-0 font-weight-bold text-primary">USERS</h6>
                         </div>
                         <div class="card-body">
-                            
+
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -212,7 +216,7 @@
                                 </table>
                                {{--  <p>{{$user->links()}}</p> --}}
                             </div>
-                            
+
                         </div>
                     </div>
 
