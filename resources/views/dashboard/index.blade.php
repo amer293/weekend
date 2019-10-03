@@ -32,7 +32,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/admin')}}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/dashboard')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -49,11 +49,11 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="{{URL::to('/admin')}}">
+                <a class="nav-link collapsed" href="{{URL::to('/dashboard')}}">
                     <i class="fas fa-cogs"></i></i>
                     <span>Gebruikers</span>
                 </a>
-                <a class="nav-link collapsed" href="{{URL::to('admin')}}/{{Auth::user()->id}}/edit">
+                <a class="nav-link collapsed" href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">
 
                     <i class="fas fa-cogs"></i></i>
                     <span>Mijn Account</span>
@@ -104,7 +104,7 @@
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                       
+
                                         {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span
                                             class="caret"></span>
                                     </a>
@@ -118,7 +118,7 @@
                                             Dashboard
                                         </a>
                                         <a class="dropdown-item"
-                                            href="{{URL::to('admin')}}/{{Auth::user()->id}}/edit">
+                                            href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">
 
                                             Mijn Account
                                         </a>
@@ -185,19 +185,19 @@
                                             @endif
                                             <td>{{$users->created_at}}</td>
                                             <td><a class="dropdown-item"
-                                                    href="{{URL::to('admin')}}/{{$users->id}}/edit"><button
+                                                    href="{{URL::to('dashboard')}}/{{$users->id}}/edit"><button
                                                         class="btn btn-success">View</button></a>
                                             </td>
-                                            
+
                                             <td>
 
-                                                {!! Form::open(['route' => ['admin.destroy', $users->id], 'method' => 'DELETE']) !!}
+                                                {!! Form::open(['route' => ['dashboard.destroy', $users->id], 'method' => 'DELETE']) !!}
                                                 <button type="submit" class="btn btn-danger">DELETE</button>
                                                 {!! Form::close() !!}
 
                                             </td>
-                                            
-                                            
+
+
                                         </tr>
                                         @endforeach
 

@@ -70,13 +70,13 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-       
+
         $user = User::find($id);
 
         return view('admin.edit')
             ->with('user', $user);
-    } 
-        
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -87,7 +87,7 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
 
             // logica
             $user = User::findOrFail($id);
@@ -101,8 +101,8 @@ class AdminController extends Controller
             if($request->password){
                 $user->password = Hash::make($request->password);
             }
-            
-            
+
+
             $user->save();
 
 
@@ -118,9 +118,9 @@ class AdminController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
-        
+
         $user->delete();
-        
-        return redirect('/admin');
+
+        return redirect('/dashboard');
     }
 }
