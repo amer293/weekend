@@ -7,6 +7,7 @@ use App\User;
 use DB;
 use Redirect;
 use Auth;
+use App\Assignment;
 
 class DashboardController extends Controller
 {
@@ -38,6 +39,12 @@ class DashboardController extends Controller
     public function create()
     {
         //
+        // if(Auth::user()->admin) 
+        // {
+        //     return view('dashboard.assignment');
+        // } else{
+        //     return Redirect::back();   
+        // }
 
     }
 
@@ -50,6 +57,15 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         //
+            $assignment = new Assignment;
+
+            $assignment->assignment = $request->assignment;
+            $assignment->user_id = $request->user_id;
+            
+            $assignment->save();
+
+
+            return Redirect::back();
     }
 
     /**
@@ -129,5 +145,13 @@ class DashboardController extends Controller
         $user->delete();
         
         return redirect('/dashboard');
+    }
+
+    public function showAssignments()
+    {
+        $assignments = Assignment::get()->all();
+
+        return view('dashboard.assignment')
+            ->with('assignments', $assignments);
     }
 }

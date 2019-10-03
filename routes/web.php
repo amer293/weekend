@@ -20,4 +20,5 @@ Auth::routes();
 Route::Resource('/dashboard', 'DashboardController');
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'DashboardController@index');
+Route::get('/opdrachten', 'DashboardController@showAssignments');
+Route::get('/dashboard', 'DashboardController@index');
