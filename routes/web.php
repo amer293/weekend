@@ -18,7 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::Resource('/dashboard', 'DashboardController');
+Route::Resource('/dashboard', 'UserController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/opdrachten', 'DashboardController@showAssignments');
+// Route::get('/dashboard', 'DashboardController@userAssignments');
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/dashboard', 'UserController@index');

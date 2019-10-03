@@ -71,7 +71,18 @@
 
             </li>
             @endif
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{URL::to('/home')}}">
+                    <i class="fas fa-cogs"></i></i>
+                    <span>Home</span>
+                </a>
+                <a class="nav-link collapsed"
+                    href="{{-- {{ route('dashboard', ['id' => Auth::user()->id]) }} --}}{{URL::to('/dashboard')}}">
+                    <i class="fas fa-cogs"></i>
+                    <span>Mijn Opdrachten</span>
+                </a>
 
+            </li>
 
         </ul>
         <!-- End of Sidebar -->
@@ -224,6 +235,42 @@
 
 
                     @endif
+
+
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">USERS</h6>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Opdracht</th>
+                                            <th>Lees meer</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($assignments as $assignment)
+                                        <tr>
+                                            <td>{{$assignment->title}}</td>
+                                            <td><a href="{{ URL::to('/dashboard') }}/{{ $assignment->id }}"><button  class="btn btn-primary">Kijk</button></a></td>
+                                        </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                               {{--  <p>{{$user->links()}}</p> --}}
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
                 </div>
                 <!-- /.container-fluid -->
 
