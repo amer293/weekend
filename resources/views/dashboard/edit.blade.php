@@ -20,15 +20,15 @@
 
             <!-- Page Wrapper -->
             <div id="wrapper">
-                <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #000563;">
                     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/dashboard')}}">
                         <div class="sidebar-brand-icon rotate-n-15">
-                            <i class="fas fa-laugh-wink"></i>
+                            <i class="fas fa-laugh-wink" style="color:#fcb1ca;"></i>
                         </div>
-                        <div class="sidebar-brand-text mx-3">Weekend</div>
+                        <div class="sidebar-brand-text mx-3" style="color:#fcb1ca;">Weekend</div>
                     </a>
                     <hr class="sidebar-divider">
-                    <div class="sidebar-heading">
+                    <div class="sidebar-heading" style="color:#fcb1ca;">
                         Dashboard
                     </div>
                     <li class="nav-item">
@@ -41,20 +41,20 @@
                             href="{{ route('dashboard.edit', ['id' => Auth::user()->id]) }}">
                             <i class="fas fa-cogs"></i>
                             <span>Mijn Account</span>
-                            
+
                         </a>
                         <a class="nav-link collapsed"
                             href="{{ route('ShowAssignments') }}">
                             <i class="fas fa-cogs"></i>
                             <span>Opdrachten</span>
                         </a>
-                        
+
                         @endif
                     </li>
                 </ul>
                 <div id="content-wrapper" class="d-flex flex-column">
                     <div id="content">
-                        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #000563;">
                             <div class="container">
                                 <a class="navbar-brand" href="{{ url('/home') }}">
                                     {{ config('app.name', 'Weekend') }}
@@ -79,13 +79,13 @@
                                         @endif
                                         @else
                                         <li class="nav-item dropdown">
-                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="color:#fcb1ca;" role="button"
                                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                                 {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span
                                                 class="caret"></span>
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                                
+
                                                 <a class="dropdown-item" href="{{URL::to('/dashboard')}}">
                                                     Dashboard
                                                 </a>
@@ -118,14 +118,14 @@
                                             <h5 class="card-title">{{$user->first_name}} {{$user->last_name}}
                                             </h5>
                                             <p class="card-text">Email: {{$user->email}}</p>
-                                            
+
                                             <p class="card-text">
                                                 {!! Form::open(['route' => ['dashboard.destroy', $user->id], 'method' => 'DELETE']) !!}
                                                 <button type="submit" class="btn btn-danger">DELETE ACCOUNT</button>
                                                 {!! Form::close() !!}
-                                                
+
                                             </p>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -149,8 +149,8 @@
                                     'email','autocomplete' => 'off']); !!}
                                     <br>
                                     <input type="password" name="password" class="form-control" placeholder="Wachtwoord">
-                            
-                    
+
+
                                     <br>
                                     <div class="card shadow mb-4">
                                         <div class="card-header py-3">
