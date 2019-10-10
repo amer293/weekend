@@ -43,7 +43,7 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <div class="sidebar-heading" style="color:#fcb1ca;">
                 Dashboard
             </div>
 
@@ -54,14 +54,13 @@
                     <i class="fas fa-cogs"></i></i>
                     <span>Home</span>
                 </a>
+                <a class="nav-link collapsed" href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">
+                    <i class="fas fa-cogs"></i></i>
+                    <span>Mijn Account</span>
+                </a>
                 <a class="nav-link collapsed" href="{{URL::to('/dashboard')}}">
                     <i class="fas fa-cogs"></i></i>
                     <span>Gebruikers</span>
-                </a>
-                <a class="nav-link collapsed" href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">
-
-                    <i class="fas fa-cogs"></i></i>
-                    <span>Mijn Account</span>
                 </a>
             </li>
             @endif
@@ -203,7 +202,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; FakeLook 2019</span>
+
                     </div>
                 </div>
             </footer>

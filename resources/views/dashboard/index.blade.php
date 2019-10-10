@@ -43,7 +43,7 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-            <div class="sidebar-heading">
+            <div class="sidebar-heading" style="color:#fcb1ca;">
                 Dashboard
             </div>
 
@@ -149,7 +149,7 @@
                     @if(Auth::user()->admin)
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">USERS</h6>
+                            <h6 class="m-0 font-weight-bold text-primary" style="color:#fcb1ca;">USERS</h6>
                         </div>
                         <div class="card-body">
 
