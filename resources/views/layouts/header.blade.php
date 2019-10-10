@@ -13,25 +13,25 @@
 <body class="header-color" style="background-color: #ffffff !important;">
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000563;">
-		  	<a class="navbar-brand active" href="{{ asset('home') }}">Weekend Opdracht <span class="sr-only">(current)</span></a>
+		  	<a class="navbar-brand active" style="color:#fcb1ca;" href="{{ asset('home') }}">Weekend Opdracht <span class="sr-only">(current)</span></a>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 		    	<div class="navbar-nav">
-		      		<a class="nav-item nav-link active" href="{{ asset('dashboard') }}">Dashboard <span class="sr-only">(current)</span></a>
+		      		<a class="nav-item nav-link active" style="color:#fcb1ca;" href="{{ asset('dashboard') }}">Dashboard <span class="sr-only">(current)</span></a>
 		    	</div>
 		  	</div>
 		  	<ul class="navbar-nav d-none d-md-block">
 	            @guest
 	                <li class="nav-item">
-	                    <a class="nav-link active" href="{{ route('login') }}">{{ __('Login') }}</a>
+	                    <a class="nav-link active" style="color:#fcb1ca;" href="{{ route('login') }}">{{ __('Login') }}</a>
 	                </li>
 	                @if (Route::has('register'))
 	                    <li class="nav-item">
-	                        <a class="nav-link active" href="{{ route('register') }}">{{ __('Register') }}</a>
+	                        <a class="nav-link active" style="color:#fcb1ca;" href="{{ route('register') }}">{{ __('Register') }}</a>
 	                    </li>
 	                @endif
 	            @else
 	                <li class="nav-item dropdown">
-	                    <a id="navbarDropdown" class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; padding-left: 50px;">
+	                    <a id="navbarDropdown" class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre style="position: relative; padding-left: 50px; color:#fcb1ca;">
 	                        {{ Auth::user()->first_name }} <span class="img-fluid rounded-circle"></span>
 	                    </a>
 

@@ -29,14 +29,14 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #000563;">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/dashboard')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-laugh-wink" style="color:#fcb1ca;"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Weekend</div>
+                <div class="sidebar-brand-text mx-3" style="color:#fcb1ca;">Weekend</div>
             </a>
 
             <!-- Divider -->
@@ -50,6 +50,10 @@
             <!-- Nav Item - Pages Collapse Menu -->
             @if(Auth::user()->admin)
             <li class="nav-item">
+                <a class="nav-link collapsed" href="{{URL::to('/home')}}">
+                    <i class="fas fa-cogs"></i></i>
+                    <span>Home</span>
+                </a>
                 <a class="nav-link collapsed" href="{{URL::to('/dashboard')}}">
                     <i class="fas fa-cogs"></i></i>
                     <span>Gebruikers</span>
@@ -59,15 +63,9 @@
                     <i class="fas fa-cogs"></i></i>
                     <span>Mijn Account</span>
                 </a>
-                <a class="nav-link collapsed"
-                    href="{{ route('dashboard.edit', ['id' => Auth::user()->id]) }}">
-                    <i class="fas fa-cogs"></i>
-                    <span>Opdrachten</span>
-                </a>
-
             </li>
             @endif
-            
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -79,11 +77,8 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #000563;">
                     <div class="container">
-                        <a class="navbar-brand" href="{{ url('/home') }}">
-                            {{ config('app.name', 'FakeLook') }}
-                        </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -110,9 +105,7 @@
                                 @endif
                                 @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" style="color:#fcb1ca;" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span
                                             class="caret"></span>
                                     </a>
@@ -121,7 +114,7 @@
 
 
                                         @if(Auth::user()->admin)
-                                        
+
                                         <a class="dropdown-item"
                                             href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">
 
@@ -156,11 +149,11 @@
                             <h6 class="m-0 font-weight-bold text-primary">Opdrachten</h6>
 
                             <button style="float:right;" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Voeg opdracht toe<button>
-                            
-                            
+
+
                         </div>
                         <div class="card-body">
-                            
+
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -178,21 +171,21 @@
                                             <td>{{$assignment->assignment}}</td>
 
                                             {{-- Doesn't work yet --}}
-                                            <td> 
+                                            <td>
                                                 {!! Form::open(['route' => ['delete', $assignment->id], 'method' => 'DELETE']) !!}
                                                     <button type="submit" class="btn btn-danger">Verwijderen</button>
                                                 {!! Form::close() !!}
                                             </td>
                                             {{-- End --}}
-                                            
+
                                         </tr>
                                         @endforeach
 
                                     </tbody>
                                 </table>
-                              
+
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -250,8 +243,8 @@
       </div>
       <div class="modal-body">
         {!! Form::open(['route' => 'dashboard.store', 'method' => 'POST', 'files' => true]) !!}
-        
-        
+
+
         <label for="name">Opdracht</label>
         <div class="input-group mb-3">
           <input type="file" name="file">
@@ -262,13 +255,13 @@
           {!! Form::text('user_id', null, ['class' => 'form-control','autocomplete' => 'off']); !!}
         </div>
 
-    
+
         <br>
         <button type="submit" class="btn btn-success">Aanmaken</button>
         <div class="float-md-right">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
-        
+
         {!! Form::close() !!}
       </div>
 

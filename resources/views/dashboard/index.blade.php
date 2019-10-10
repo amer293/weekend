@@ -34,9 +34,9 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/home')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="fas fa-laugh-wink" style="color:#fcb1ca;"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Weekend</div>
+                <div class="sidebar-brand-text mx-3" style="color:#fcb1ca;">Weekend</div>
             </a>
 
             <!-- Divider -->
@@ -54,10 +54,6 @@
                     <i class="fas fa-cogs"></i></i>
                     <span>Home</span>
                 </a>
-                <a class="nav-link collapsed" href="{{URL::to('/dashboard')}}">
-                    <i class="fas fa-cogs"></i></i>
-                    <span>Gebruikers</span>
-                </a>
                 <a class="nav-link collapsed" href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">
 
                     <i class="fas fa-cogs"></i></i>
@@ -71,19 +67,6 @@
 
             </li>
             @endif
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="{{URL::to('/home')}}">
-                    <i class="fas fa-cogs"></i></i>
-                    <span>Home</span>
-                </a>
-                <a class="nav-link collapsed"
-                    href="{{-- {{ route('dashboard', ['id' => Auth::user()->id]) }} --}}{{URL::to('/dashboard')}}">
-                    <i class="fas fa-cogs"></i>
-                    <span>Mijn Opdrachten</span>
-                </a>
-
-            </li>
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -97,7 +80,7 @@
                 <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #000563;">
                     <div class="container">
                         <a class="navbar-brand" href="{{ url('/home') }}">
-                            {{ config('app.name', 'FakeLook') }}
+                            {{-- {{ config('app.name', 'FakeLook') }} --}}
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -125,9 +108,7 @@
                                 @endif
                                 @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" style="color:#fcb1ca;" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} <span
                                             class="caret"></span>
                                     </a>
@@ -237,7 +218,7 @@
                     @endif
 
 
-{{-- 
+{{--
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">USERS</h6>
@@ -281,7 +262,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; FakeLook 2019</span>
+
                     </div>
                 </div>
             </footer>
