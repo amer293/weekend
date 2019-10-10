@@ -19,8 +19,10 @@ Auth::routes();
 
 Route::Resource('/dashboard', 'DashboardController');
 Route::Resource('/dashboard', 'UserController');
+Route::Resource('/opdracht', 'AssignmentController');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/opdrachten', 'DashboardController@showAssignments')->name('ShowAssignments');
 Route::get('/opdrachten/delete/', 'DashboardController@destroyAssignment')->name('delete');
