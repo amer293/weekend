@@ -21,12 +21,12 @@ Route::Resource('/dashboard', 'DashboardController');
 Route::Resource('/dashboard', 'UserController');
 
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
+
 Route::get('/opdrachten', 'DashboardController@showAssignments')->name('ShowAssignments');
 Route::get('/opdrachten/delete/', 'DashboardController@destroyAssignment')->name('delete');
-=======
+
 Route::get('/opdrachten', 'DashboardController@showAssignments');
 // Route::get('/dashboard', 'DashboardController@userAssignments');
->>>>>>> 16d7e7336742ab8bc3d696ea904f27ef9b228295
+
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/dashboard', 'UserController@index');
