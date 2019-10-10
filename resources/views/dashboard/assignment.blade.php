@@ -254,7 +254,7 @@
         
         <label for="name">Opdracht</label>
         <div class="input-group mb-3">
-          {!! Form::text('assignment', null, ['class' => 'form-control','autocomplete' => 'off']); !!}
+          <input type="file" name="file">
         </div>
 
         <label for="name">Gebruiker</label>

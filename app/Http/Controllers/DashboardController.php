@@ -62,9 +62,17 @@ class DashboardController extends Controller
             $assignment->assignment = $request->assignment;
             $assignment->user_id = $request->user_id;
             
+
+            if($request->hasFile('file')){
+
+                $assignmentFile = $request->file('file');
+                $filename = time() . '.' . $assignmentFile->getClientOriginalExtension();
+                $destinationPath = 'public/files';
+                $path = $request->file('file')->storeAs($destinationPath, $assignmentFile);
+            }
+
+            $assignment->file = $assignmentFile;
             $assignment->save();
-
-
             return Redirect::back();
     }
 

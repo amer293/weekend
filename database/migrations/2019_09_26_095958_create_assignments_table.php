@@ -19,6 +19,7 @@ class CreateAssignmentsTable extends Migration
             $table->string('assignment');
             $table->string('title');
             $table->longText('body');
+            $table->string('file');
             $table->timestamps();
         });
     }
