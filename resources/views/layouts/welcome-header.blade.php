@@ -13,7 +13,7 @@
 <body class="header-color" style="background-color: #ffffff !important;">
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #000563;">
-		  	<a class="navbar-brand" href="{{ asset('/') }}">Weekend Opdracht</a>
+		  	<a class="navbar-brand" style="color:#fcb1ca;" href="{{ asset('/') }}">Weekend Opdracht</a>
 		</nav>
 	</header>
 @yield('content')

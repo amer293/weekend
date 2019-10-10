@@ -39,11 +39,11 @@ class DashboardController extends Controller
     public function create()
     {
         //
-        // if(Auth::user()->admin) 
+        // if(Auth::user()->admin)
         // {
         //     return view('dashboard.assignment');
         // } else{
-        //     return Redirect::back();   
+        //     return Redirect::back();
         // }
 
     }
@@ -56,7 +56,28 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
         
+=======
+        //
+            $assignment = new Assignment;
+
+            $assignment->assignment = $request->assignment;
+            $assignment->user_id = $request->user_id;
+
+
+            if($request->hasFile('file')){
+
+                $assignmentFile = $request->file('file');
+                $filename = time() . '.' . $assignmentFile->getClientOriginalExtension();
+                $destinationPath = 'public/files';
+                $path = $request->file('file')->storeAs($destinationPath, $assignmentFile);
+            }
+
+            $assignment->file = $assignmentFile;
+            $assignment->save();
+            return Redirect::back();
+>>>>>>> ab33b117374f35d3ad34098444b5fbe863c06483
     }
 
     /**
@@ -77,20 +98,20 @@ class DashboardController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
-        if(Auth::user()->admin) 
+    {
+        if(Auth::user()->admin)
         {
             $user = User::find($id);
 
                 return view('dashboard.edit')
                 ->with('user', $user);
         } else{
-            return Redirect::back();   
+            return Redirect::back();
         }
-       
-   
-    } 
-        
+
+
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -101,7 +122,7 @@ class DashboardController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
 
             // logica
             $user = User::findOrFail($id);
@@ -115,8 +136,8 @@ class DashboardController extends Controller
             if($request->password){
                 $user->password = Hash::make($request->password);
             }
-            
-            
+
+
             $user->save();
 
 
@@ -132,14 +153,14 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
-        
+
         $user->delete();
-        
+
         return redirect('/dashboard');
     }
 
     public function showAssignments()
-    {   
+    {
         if(Auth::user()->admin){
 
 
@@ -155,9 +176,9 @@ class DashboardController extends Controller
     public function destroyAssignment($id)
     {
         $assignment = Assignment::findOrFail($id);
-        
+
         $assignment->delete();
-        
+
         return redirect::back();
     }
 }
