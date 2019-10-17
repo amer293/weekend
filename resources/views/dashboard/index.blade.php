@@ -32,7 +32,7 @@
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #000563;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/home')}}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{URL::to('/dashboard')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink" style="color:#fcb1ca;"></i>
                 </div>
@@ -179,7 +179,7 @@
                                             @else
                                             <td>Nee</td>
                                             @endif
-                                            @if($users->recruit)
+                                            @if($users->recruiter)
                                             <td>Ja</td>
                                             @else
                                             <td>Nee</td>
