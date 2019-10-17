@@ -56,9 +56,7 @@ class DashboardController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-        
-=======
+
         //
             $assignment = new Assignment;
 
@@ -77,7 +75,7 @@ class DashboardController extends Controller
             $assignment->file = $assignmentFile;
             $assignment->save();
             return Redirect::back();
->>>>>>> ab33b117374f35d3ad34098444b5fbe863c06483
+
     }
 
     /**
