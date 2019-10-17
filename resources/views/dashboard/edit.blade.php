@@ -56,9 +56,6 @@
                     <div id="content">
                         <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #000563;">
                             <div class="container">
-                                <a class="navbar-brand" href="{{ url('/home') }}">
-                                    {{ config('app.name', 'Weekend') }}
-                                </a>
                                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
