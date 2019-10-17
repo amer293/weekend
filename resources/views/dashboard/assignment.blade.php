@@ -145,7 +145,7 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Opdrachten</h6>
 
-                            <button style="float:right;" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Voeg opdracht toe<button>
+                            <button style="float:right;" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Voeg opdracht toe</button>
 
 
                         </div>

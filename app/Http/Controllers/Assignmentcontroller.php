@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Assignment;
 use Redirect;
+
+use App\User;
 class Assignmentcontroller extends Controller
 {
     /**
@@ -24,7 +26,7 @@ class Assignmentcontroller extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,13 +37,13 @@ class Assignmentcontroller extends Controller
      */
     public function store(Request $request)
     {
-    
+
         $assignment = new Assignment;
 
         $assignment->title = $request->title;
         $assignment->user_id = $request->user_id;
-           
-            
+
+
 
         if($request->hasFile('file')){
 
@@ -49,13 +51,20 @@ class Assignmentcontroller extends Controller
             $filename = time() . '.' . $assignmentFile->getClientOriginalExtension();
             $destinationPath = 'public/file';
             $saveAssignment = $request->file('file')->storeAs($destinationPath, $filename);
-
-            
         }
 
         $assignment->file = $filename;
         $assignment->save();
         return Redirect::back();
+
+
+        // mijn code
+        // assignment hoort bij user
+        // $user->fill(Input::get());
+        // $user->user_id = Auth::user()->id;
+        // $user->user_id->assignment()->where('active', 1)->get();
+        // $user->save();
+
     }
 
     /**
