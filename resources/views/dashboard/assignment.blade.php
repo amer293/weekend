@@ -241,21 +241,18 @@
         </button>
       </div>
       <div class="modal-body">
-<<<<<<< HEAD
         {!! Form::open(['route' => 'opdracht.store', 'method' => 'POST', 'files' => true]) !!}
-        
+
         <label for="file">Title</label>
         <div class="input-group mb-3">
           <input type="text" name="title" class="form-control">
         </div>
-        
+
         <label for="file">Opdracht</label>
-=======
         {!! Form::open(['route' => 'dashboard.store', 'method' => 'POST', 'files' => true]) !!}
 
 
         <label for="name">Opdracht</label>
->>>>>>> ab33b117374f35d3ad34098444b5fbe863c06483
         <div class="input-group mb-3">
           <input type="file" name="file" class="form-control">
         </div>
