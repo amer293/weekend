@@ -36,20 +36,15 @@
                             <i class="fas fa-cogs"></i></i>
                             <span>Dashboard</span>
                         </a>
-                        @if(Auth::user()->admin)
-                        <a class="nav-link collapsed"
-                            href="{{ route('dashboard.edit', ['id' => Auth::user()->id]) }}">
-                            <i class="fas fa-cogs"></i>
-                            <span>Mijn Account</span>
-
+                        <a class="nav-link collapsed" href="{{URL::to('/dashboard')}}">
+                            <i class="fas fa-cogs"></i></i>
+                            <span>Gebruikers</span>
                         </a>
                         <a class="nav-link collapsed"
                             href="{{ route('ShowAssignments') }}">
                             <i class="fas fa-cogs"></i>
                             <span>Opdrachten</span>
                         </a>
-
-                        @endif
                     </li>
                 </ul>
                 <div id="content-wrapper" class="d-flex flex-column">
@@ -87,9 +82,6 @@
                                                     Dashboard
                                                 </a>
                                                 @if(Auth::user()->admin)
-                                                <a class="dropdown-item"
-                                                    href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">Opdracht toewijzen
-                                                </a>
                                                 @endif
                                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">

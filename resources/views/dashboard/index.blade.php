@@ -55,7 +55,6 @@
                     <span>Home</span>
                 </a>
                 <a class="nav-link collapsed" href="{{URL::to('dashboard')}}/{{Auth::user()->id}}/edit">
-
                     <i class="fas fa-cogs"></i></i>
                     <span>Mijn Account</span>
                 </a>
@@ -64,7 +63,6 @@
                     <i class="fas fa-cogs"></i>
                     <span>Opdrachten</span>
                 </a>
-
             </li>
             @endif
         </ul>
